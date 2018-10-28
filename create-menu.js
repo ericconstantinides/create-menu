@@ -28,24 +28,25 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
 
     var navChildren = navObj.links || []
 
-    // generate the children:
-    var childEls = createChildren(navChildren, classesArr, depth)
-
-    var numOfColumns = navObj.columns ? navObj.columns : 1
-    var columns = []
-    for (var j = 0; j < numOfColumns; j++) {
-      columns[j] = createEl('ul', 'list', classesArr, depth)
-      listContainerEl.appendChild(columns[j])
-    }
-    var currentCol = 0
-    if (columns.length > 0) {
-      for (var i = 0; i < childEls.length; i++) {
-        // figure out which column:
-        currentCol = Math.floor(i / Math.ceil(childEls.length / numOfColumns))
-        columns[currentCol].appendChild(childEls[i])
+    // generate the children and then the navEl
+    return createChildren(navChildren, classesArr, depth, function (childEls) {
+      var numOfColumns = navObj.columns ? navObj.columns : 1
+      var columns = []
+      for (var j = 0; j < numOfColumns; j++) {
+        columns[j] = createEl('ul', 'list', classesArr, depth)
+        listContainerEl.appendChild(columns[j])
       }
-    }
-    return navEl
+      var currentCol = 0
+      if (columns.length > 0) {
+        for (var i = 0; i < childEls.length; i++) {
+          // figure out which column:
+          currentCol = Math.floor(i / Math.ceil(childEls.length / numOfColumns))
+          columns[currentCol].appendChild(childEls[i])
+        }
+      }
+      return navEl
+    })
+
   }
 
   /**
@@ -54,8 +55,8 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    * @param {Array} classesArr
    * @param {number} depth
    */
-  var createChildren = function(navChildren, classesArr, depth) {
-    return navChildren.map(function(item) {
+  var createChildren = function(navChildren, classesArr, depth, createNavEl) {
+    var childEls = navChildren.map(function(item) {
       var subClassesArr = (item.className && item.className.split(' ')) || []
       var hasChildren = item.links && item.links.length > 0
       var itemEl = createItem(item, depth, classesArr, hasChildren, subClassesArr)
@@ -68,6 +69,7 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
       }
       return itemEl
     })
+    return createNavEl(childEls)
   }
 
   /**
@@ -138,6 +140,7 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     if (width) {
       element.style.width = width
     }
+    console.log(element.className)
     return element
   }
 
