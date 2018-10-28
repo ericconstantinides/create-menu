@@ -29,7 +29,6 @@
   padding: 0 10px;
 }
 .site-logo {
-  background-image: url('/images/logo_insureon.png');
   width: 131px;
   max-width: 33vw;
   height: 50px;
@@ -511,6 +510,7 @@
   }
   .main-nav.is-active .main-nav--shadow-menu {
     opacity: 1;
+    pointer-events: auto;
     height: 100% !important;
   }
   html:not(.is-resizing) .main-nav {
@@ -526,6 +526,11 @@
 
 /* "tablet" view */
 @media only screen and (min-width: 600px) and (max-width: 799px) {
+  .main-nav,
+  .main-nav__list-container,
+  .main-nav__list {
+    flex: 0 0 auto;
+  }
   .main-nav__list-container--depth-0 {
     align-self: flex-end;
   }

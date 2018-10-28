@@ -1,6 +1,6 @@
 # CreateMenu
 
-createMenu creates an Insureon menu from a JSON object. The created menu is ES5 compatible 
+createMenu creates a menu from a JSON object. The created menu is ES5 compatible 
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@ createMenu can run from the command line with a small taskRunner file. It's exec
 /* global require */
 const fs = require('fs')
 const createMenu = require('./createMenu')
-const insureonMenuJSON = require('./insureon-menu.json')
+const menuJSON = require('./menu.json')
 
 const MENU_STUB = '<!-- MENU_STUB -->'
 let blankSiteHeader
@@ -36,7 +36,7 @@ fs.readFile('./public/site-header/site-header.html', function (err, data) {
   blankSiteHeader = data.toString()
 })
 
-const menu = createMenu.create(insureonMenuJSON, blankSiteHeader, MENU_STUB)
+const menu = createMenu.create(menuJSON, blankSiteHeader, MENU_STUB)
 console.log(menu)
 ```
 

@@ -6,11 +6,8 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.insureondev.com:7999/~eric.constantinides_insureon.com/cx-create-menu.git"
+    "url": "ssh://git@github.com:ericconstantinides/create-menu.git"
   },
-  "keywords": [
-    "insureon"
-  ],
   "author": "Eric Constantinides",
   "license": "UNLICENSED",
   "dependencies": {

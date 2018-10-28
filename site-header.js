@@ -3,7 +3,7 @@
 
 var DESKTOP_BREAKPOINT = 800
 
-var initialize = function () {
+var initialize = function() {
   var siteHeader = document.getElementById('site-header')
   var menuTimeout = null
   var inHeader = false
@@ -17,11 +17,13 @@ var initialize = function () {
    * @param {node object} target
    * @param {string} action ['add' or 'remove']
    */
-  var updateNavActive = function (target, action) {
-    if (target.children.length === 0) { return null }
+  var updateNavActive = function(target, action) {
+    if (target.children.length === 0) {
+      return null
+    }
     target.classList[action]('is-active')
     ;[].filter
-      .call(target.children, function (child) {
+      .call(target.children, function(child) {
         if (child.classList.contains('main-nav--depth-1')) {
           activeItem = action === 'add' ? child : null
         }
@@ -52,12 +54,12 @@ var initialize = function () {
     }
   }
 
-  var delayedUpdateNavActive = function (target, action) {
+  var delayedUpdateNavActive = function(target, action) {
     if (action === 'add') {
       if (inHeader) {
         updateNavActive(target, action)
       } else {
-        menuTimeout = setTimeout(function () {
+        menuTimeout = setTimeout(function() {
           updateNavActive(target, action)
           inHeader = true
         }, 150)
@@ -68,7 +70,7 @@ var initialize = function () {
     }
   }
 
-  var handleNavClick = function (event) {
+  var handleNavClick = function(event) {
     var target
     var action
     // if DESKTOP (no touch and at least DESKTOP_BREAKPOINT), EXIT
@@ -95,12 +97,26 @@ var initialize = function () {
     }
   }
 
-  var handleHeaderMouseLeave = function (event) {
+  var handleShadowMenuClick = function(event) {
+    console.log('event:', event.target)
+    if (event.target.closest('.main-nav--shadow-menu')) {
+      console.log('shadowMenuClick')
+      updateNavActive(mainNav, 'remove')
+    }
+    var target
+    var action
+    // if DESKTOP EXIT
+    if (window.matchMedia('(min-width: ' + DESKTOP_BREAKPOINT + 'px)').matches) {
+      return
+    }
+  }
+
+  var handleHeaderMouseLeave = function(event) {
     inHeader = false
   }
 
-  var handleMouseEvent = function (action) {
-    return function (event) {
+  var handleMouseEvent = function(action) {
+    return function(event) {
       // MouseEvents are only at DESKTOP_BREAKPOINT or wider:
       if (window.matchMedia('(min-width: ' + DESKTOP_BREAKPOINT + 'px)').matches) {
         delayedUpdateNavActive(event.target, action)
@@ -108,17 +124,17 @@ var initialize = function () {
     }
   }
 
-  var handleNavToggle = function (event) {
+  var handleNavToggle = function(event) {
     var navActive = navToggle.className.indexOf('is-active') !== -1
     var action = navActive ? 'remove' : 'add'
     // toggle all the extra items:
     navToggle.classList[action]('is-active')
     siteHeader.classList[action]('is-active')
     if (navActive) {
-      ;[].forEach.call(allNavs, function (el) {
+      ;[].forEach.call(allNavs, function(el) {
         el.classList.remove('is-active')
       })
-      ;[].forEach.call(parentItems, function (el) {
+      ;[].forEach.call(parentItems, function(el) {
         el.classList.remove('is-active')
       })
     } else {
@@ -131,7 +147,7 @@ var initialize = function () {
     HTML.style.overflow = navActive ? 'inherit' : 'hidden'
   }
 
-  var handleWindowResizing = function () {
+  var handleWindowResizing = function() {
     // only write to the DOM once if isResizing isn't true yet; check windowWidth change for mobile saying resize:
     if (isResizing === false && windowWidth !== window.innerWidth) {
       HTML.classList.add('is-resizing')
@@ -139,17 +155,19 @@ var initialize = function () {
       windowWidth = window.innerWidth
     }
     clearTimeout(isResizingTimeout)
-    isResizingTimeout = setTimeout(function () {
+    isResizingTimeout = setTimeout(function() {
       HTML.classList.remove('is-resizing')
       isResizing = false
       windowWidth = window.innerWidth
     }, 250)
   }
   // shadowMenu gives us nice transitions for the menu backdrop
-  var addShadowMenu = function (mainNav) {
+  var addShadowMenu = function(mainNav) {
     var shadowMenu = document.createElement('div')
     shadowMenu.classList.add('main-nav--shadow-menu')
-    mainNav.appendChild(shadowMenu)
+    shadowMenu.addEventListener('click', handleShadowMenuClick)
+    mainNav.insertBefore(shadowMenu, mainNav.firstChild)
+    // mainNav.parentElment.appendChild(shadowMenu)
     return shadowMenu
   }
 
@@ -183,7 +201,7 @@ var initialize = function () {
   navToggle.addEventListener('click', handleNavToggle)
   mainNav.addEventListener('click', handleNavClick)
   siteHeader.addEventListener('mouseleave', handleHeaderMouseLeave)
-  ;[].forEach.call(parentItems, function (parentItem) {
+  ;[].forEach.call(parentItems, function(parentItem) {
     // mouseenter is ONLY for "DESKTOP":
     if (!hasTouch) {
       parentItem.addEventListener('mouseenter', handleMouseEvent('add'))
