@@ -1,6 +1,6 @@
 {
   "name": "create-menu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "creates a menu from a JSON object",
   "main": "create-menu.js",
   "scripts": {
