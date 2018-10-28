@@ -21,20 +21,20 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    */
   var createMenuRecursive = function(navObj, depth, parentClassesArr) {
     var itemClassesArr = (navObj.className && navObj.className.split(' ')) || []
-    var classesArr = itemClassesArr.concat(parentClassesArr)
-    var navEl = createEl('nav', depth, classesArr)
-    var listContainerEl = createEl('div', depth, classesArr, 'list-container')
+    var classArr = itemClassesArr.concat(parentClassesArr)
+    var navEl = createEl('nav', depth, classArr)
+    var listContainerEl = createEl('div', depth, classArr, 'list-container')
     navEl.appendChild(listContainerEl)
 
     var navChildren = navObj.links || []
 
     // generate the children:
-    var childEls = createChildren(navChildren, depth, classesArr)
+    var childEls = createChildren(navChildren, depth, classArr)
 
     var numOfColumns = navObj.columns ? navObj.columns : 1
     var columns = []
     for (var j = 0; j < numOfColumns; j++) {
-      columns[j] = createEl('ul', depth, classesArr, 'list')
+      columns[j] = createEl('ul', depth, classArr, 'list')
       listContainerEl.appendChild(columns[j])
     }
     var currentCol = 0
@@ -52,17 +52,17 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    *
    * @param {object} navChildren
    * @param {integer} depth
-   * @param {Array} classesArr
+   * @param {Array} classArr
    */
-  var createChildren = function(navChildren, depth, classesArr) {
+  var createChildren = function(navChildren, depth, classArr) {
     return navChildren.map(function(item) {
-      var subClassesArr = (item.className && item.className.split(' ')) || []
+      var subClassArr = (item.className && item.className.split(' ')) || []
       var hasChildren = item.links && item.links.length > 0
-      var itemEl = createItem(item, depth, classesArr, hasChildren, subClassesArr)
+      var itemEl = createItem(item, depth, classArr, hasChildren, subClassArr)
       if (hasChildren) {
-        var childNavEl = createMenuRecursive(item, depth + 1, classesArr)
+        var childNavEl = createMenuRecursive(item, depth + 1, classArr)
         if (depth === 0) {
-          childNavEl.appendChild(createHeader(item, depth + 1, classesArr))
+          childNavEl.appendChild(createHeader(item, depth + 1, classArr))
         }
         itemEl.insertBefore(childNavEl, itemEl.firstChild.nextSibling)
       }
@@ -74,19 +74,19 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    *
    * @param {object} item
    * @param {integer} depth
-   * @param {array} classesArr
+   * @param {array} classArr
    * @param {boolean} isParent
-   * @param {array} subClassesArr
+   * @param {array} subClassArr
    */
-  var createItem = function(item, depth, classesArr, isParent, subClassesArr) {
+  var createItem = function(item, depth, classArr, isParent, subClassArr) {
     var title = item.title
     var href = item.href
     var width = item.width
-    var itemEl = createEl('li', depth, classesArr, 'item', isParent, null, null, null, width)
+    var itemEl = createEl('li', depth, classArr, 'item', isParent, null, null, null, width)
     itemEl.appendChild(
       title && href
-        ? createEl('a', depth, classesArr, 'link', isParent, title, subClassesArr, href)
-        : createEl('span', depth, classesArr, 'title', isParent, title || href, subClassesArr)
+        ? createEl('a', depth, classArr, 'link', isParent, title, subClassArr, href)
+        : createEl('span', depth, classArr, 'title', isParent, title || href, subClassArr)
     )
     return itemEl
   }
@@ -95,39 +95,49 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    *
    * @param {object} item
    * @param {integer} depth
-   * @param {array} classesArr
+   * @param {array} classArr
    */
-  var createHeader = function(item, depth, classesArr) {
+  var createHeader = function(item, depth, classArr) {
     var title = item.title
     var href = item.href
-    var header = createEl('header', depth, classesArr, 'header')
-    header.appendChild(createEl('a', depth, classesArr, 'header-title', null, title, null, href))
-    header.appendChild(createEl('span', depth, classesArr, 'header-close'))
+    var header = createEl('header', depth, classArr, 'header')
+    header.appendChild(createEl('a', depth, classArr, 'header-title', null, title, null, href))
+    header.appendChild(createEl('span', depth, classArr, 'header-close'))
     return header
   }
 
   /**
    *
-   * @param {string} type The type of HTML element to make
+   * @param {string} tag The tag of HTML element to make
    * @param {integer} depth
-   * @param {array} classesArr
+   * @param {array} classArr
    * @param {string} name The classname to add to the element
-   * @param {boolean} isPrnt
+   * @param {boolean} isParent
    * @param {string} text Text or HTML to add inside the element
-   * @param {array} subClassesArr Additional classes to add as-is
+   * @param {array} subClassArr Additional classes to add as-is
    * @param {string} href The link if necessary
    * @param {number} width
    */
-  var createEl = function(type, depth, clsArr, name, isPrnt, text, subClsArr, href, width) {
-    var element = document.createElement(type)
-    clsArr.forEach(function(className) {
+  var createEl = function(
+    tag,
+    depth,
+    classArr,
+    name,
+    isParent,
+    text,
+    subClassArr,
+    href,
+    width
+  ) {
+    var element = document.createElement(tag)
+    classArr.forEach(function(className) {
       var classNameThenItemName = name ? className + '__' + name : className
       element.classList.add(classNameThenItemName)
       element.classList.add(classNameThenItemName + '--depth-' + depth)
-      isPrnt && element.classList.add(classNameThenItemName + '--parent')
+      isParent && element.classList.add(classNameThenItemName + '--parent')
     })
-    subClsArr &&
-      subClsArr.forEach(function(className) {
+    subClassArr &&
+      subClassArr.forEach(function(className) {
         return element.classList.add(className)
       })
     href && element.setAttribute('href', href)
