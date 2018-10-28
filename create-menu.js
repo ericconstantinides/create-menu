@@ -29,7 +29,7 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     var navChildren = navObj.links || []
 
     // generate the children and then the navEl
-    return createChildren(navChildren, classesArr, depth, function (childEls) {
+    return createChildren(navChildren, classesArr, depth, function(childEls) {
       var numOfColumns = navObj.columns ? navObj.columns : 1
       var columns = []
       for (var j = 0; j < numOfColumns; j++) {
@@ -46,7 +46,6 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
       }
       return navEl
     })
-
   }
 
   /**
@@ -84,12 +83,12 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     var title = item.title
     var href = item.href
     var width = item.width
-    var itemEl = createEl('li', 'item', classesArr, depth, isParent, null, null, null, width)
-    itemEl.appendChild(
-      title && href
-        ? createEl('a', 'link', classesArr, depth, isParent, title, subClassesArr, href)
-        : createEl('span', 'title', classesArr, depth, isParent, title || href, subClassesArr)
-    )
+    var itemElBefore = createEl('li', 'item', classesArr, depth, isParent)
+    var itemEl = addAttributes(itemElBefore, null, null, null, width)
+    // now we create the child span or a:
+    var childElBefore = createEl(href ? 'a' : 'span', 'link', classesArr, depth, isParent)
+    var childEl = addAttributes(childElBefore, title || href, subClassesArr, href)
+    itemEl.appendChild(childEl)
     return itemEl
   }
 
@@ -103,7 +102,8 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     var title = item.title
     var href = item.href
     var header = createEl('header', 'header', classesArr, depth)
-    header.appendChild(createEl('a', 'header-title', classesArr, depth, null, title, null, href))
+    var headerTitle = createEl('a', 'header-title', classesArr, depth)
+    header.appendChild(addAttributes(headerTitle, title, null, href))
     header.appendChild(createEl('span', 'header-close', classesArr, depth))
     return header
   }
@@ -112,15 +112,11 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    *
    * @param {string} tag - The tag of HTML element to make
    * @param {string} name - The primay classname of the element
-   * @param {array} classesArr - 
+   * @param {array} classesArr -
    * @param {number} depth - how many layers deep into the recursion
    * @param {boolean} isParent -
-   * @param {string} text - Text or HTML to add inside the element
-   * @param {array} subClassesArr - Additional classes to add as-is
-   * @param {string} href - The link if necessary
-   * @param {number} width -
    */
-  var createEl = function(tag, name, classesArr, depth, isParent, text, subClassesArr, url, width) {
+  var createEl = function(tag, name, classesArr, depth, isParent) {
     var element = document.createElement(tag)
     classesArr.forEach(function(className) {
       var classNameThenItemName = name ? className + '__' + name : className
@@ -128,19 +124,25 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
       element.classList.add(classNameThenItemName + '--depth-' + depth)
       isParent && element.classList.add(classNameThenItemName + '--parent')
     })
+    return element
+  }
+
+  /**
+   * @param {nodeElement} element
+   * @param {string} text - Text or HTML to add inside the element
+   * @param {array} subClassesArr - Additional classes to add as-is
+   * @param {string} href - The link if necessary
+   * @param {number} width -
+   */
+  var addAttributes = function(element, text, subClassesArr, href, width) {
     if (subClassesArr && subClassesArr.length > 0) {
       subClassesArr.forEach(function(className) {
         element.classList.add(className)
       })
     }
-    if (url) {
-      element.setAttribute('href', url)
-    }
-    element.textContent = text || ''
-    if (width) {
-      element.style.width = width
-    }
-    console.log(element.className)
+    if (href) element.setAttribute('href', href)
+    if (text) element.textContent = text
+    if (width) element.style.width = width
     return element
   }
 
