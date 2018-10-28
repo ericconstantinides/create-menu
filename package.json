@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "creates a menu from a JSON object",
   "main": "",
-  "scripts": {},
+  "scripts": {
+    "start": "node create-menu-taskrunner.js"
+  },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:ericconstantinides/create-menu.git"
