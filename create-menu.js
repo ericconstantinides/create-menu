@@ -16,25 +16,25 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
    * createMenuRecursive creates each child off of the links object
    *
    * @param {object} navObj
-   * @param {integer} depth
    * @param {array} parentClassesArr
+   * @param {number} depth
    */
-  var createMenuRecursive = function(navObj, depth, parentClassesArr) {
+  var createMenuRecursive = function(navObj, parentClassesArr, depth) {
     var itemClassesArr = (navObj.className && navObj.className.split(' ')) || []
     var classesArr = itemClassesArr.concat(parentClassesArr)
-    var navEl = createEl('nav', depth, classesArr)
-    var listContainerEl = createEl('div', depth, classesArr, 'list-container')
+    var navEl = createEl('nav', null, classesArr, depth)
+    var listContainerEl = createEl('div', 'list-container', classesArr, depth)
     navEl.appendChild(listContainerEl)
 
     var navChildren = navObj.links || []
 
     // generate the children:
-    var childEls = createChildren(navChildren, depth, classesArr)
+    var childEls = createChildren(navChildren, classesArr, depth)
 
     var numOfColumns = navObj.columns ? navObj.columns : 1
     var columns = []
     for (var j = 0; j < numOfColumns; j++) {
-      columns[j] = createEl('ul', depth, classesArr, 'list')
+      columns[j] = createEl('ul', 'list', classesArr, depth)
       listContainerEl.appendChild(columns[j])
     }
     var currentCol = 0
@@ -51,18 +51,18 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
   /**
    *
    * @param {object} navChildren
-   * @param {integer} depth
    * @param {Array} classesArr
+   * @param {number} depth
    */
-  var createChildren = function(navChildren, depth, classesArr) {
+  var createChildren = function(navChildren, classesArr, depth) {
     return navChildren.map(function(item) {
       var subClassesArr = (item.className && item.className.split(' ')) || []
       var hasChildren = item.links && item.links.length > 0
       var itemEl = createItem(item, depth, classesArr, hasChildren, subClassesArr)
       if (hasChildren) {
-        var childNavEl = createMenuRecursive(item, depth + 1, classesArr)
+        var childNavEl = createMenuRecursive(item, classesArr, depth + 1)
         if (depth === 0) {
-          childNavEl.appendChild(createHeader(item, depth + 1, classesArr))
+          childNavEl.appendChild(createHeader(item, classesArr, depth + 1))
         }
         itemEl.insertBefore(childNavEl, itemEl.firstChild.nextSibling)
       }
@@ -73,7 +73,7 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
   /**
    *
    * @param {object} item
-   * @param {integer} depth
+   * @param {number} depth
    * @param {array} classesArr
    * @param {boolean} isParent
    * @param {array} subClassesArr
@@ -82,11 +82,11 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     var title = item.title
     var href = item.href
     var width = item.width
-    var itemEl = createEl('li', depth, classesArr, 'item', isParent, null, null, null, width)
+    var itemEl = createEl('li', 'item', classesArr, depth, isParent, null, null, null, width)
     itemEl.appendChild(
       title && href
-        ? createEl('a', depth, classesArr, 'link', isParent, title, subClassesArr, href)
-        : createEl('span', depth, classesArr, 'title', isParent, title || href, subClassesArr)
+        ? createEl('a', 'link', classesArr, depth, isParent, title, subClassesArr, href)
+        : createEl('span', 'title', classesArr, depth, isParent, title || href, subClassesArr)
     )
     return itemEl
   }
@@ -94,31 +94,31 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
   /**
    *
    * @param {object} item
-   * @param {integer} depth
    * @param {array} classesArr
+   * @param {number} depth
    */
-  var createHeader = function(item, depth, classesArr) {
+  var createHeader = function(item, classesArr, depth) {
     var title = item.title
     var href = item.href
-    var header = createEl('header', depth, classesArr, 'header')
-    header.appendChild(createEl('a', depth, classesArr, 'header-title', null, title, null, href))
-    header.appendChild(createEl('span', depth, classesArr, 'header-close'))
+    var header = createEl('header', 'header', classesArr, depth)
+    header.appendChild(createEl('a', 'header-title', classesArr, depth, null, title, null, href))
+    header.appendChild(createEl('span', 'header-close', classesArr, depth))
     return header
   }
 
   /**
    *
-   * @param {string} tag The tag of HTML element to make
-   * @param {integer} depth
-   * @param {array} classesArr
-   * @param {string} name The classname to add to the element
-   * @param {boolean} isParent
-   * @param {string} text Text or HTML to add inside the element
-   * @param {array} subClassesArr Additional classes to add as-is
-   * @param {string} href The link if necessary
-   * @param {number} width
+   * @param {string} tag - The tag of HTML element to make
+   * @param {string} name - The primay classname of the element
+   * @param {array} classesArr - 
+   * @param {number} depth - how many layers deep into the recursion
+   * @param {boolean} isParent -
+   * @param {string} text - Text or HTML to add inside the element
+   * @param {array} subClassesArr - Additional classes to add as-is
+   * @param {string} href - The link if necessary
+   * @param {number} width -
    */
-  var createEl = function(tag, depth, classesArr, name, isParent, text, subClassesArr, url, width) {
+  var createEl = function(tag, name, classesArr, depth, isParent, text, subClassesArr, url, width) {
     var element = document.createElement(tag)
     classesArr.forEach(function(className) {
       var classNameThenItemName = name ? className + '__' + name : className
@@ -143,7 +143,7 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
 
   var menuClassName = navObj.className ? navObj.className : ''
   var menuClassesArr = (menuClassName && menuClassName.split(' ')) || []
-  var navEl = createMenuRecursive(navObj, 0, menuClassesArr)
+  var navEl = createMenuRecursive(navObj, menuClassesArr, 0)
 
   if (siteHeaderHTML && menuStub) {
     return siteHeaderHTML.replace(menuStub, navEl.outerHTML)
