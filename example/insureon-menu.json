@@ -1,0 +1,266 @@
+{
+  "className": "main-nav",
+  "links": [
+    {
+      "title": "Insurance Policies",
+      "href": "https://www.insureon.com/small-business-insurance",
+      "links": [
+        {
+          "title": "Browse by Insurance Policy",
+          "columns": 3,
+          "links": [
+            {
+              "title": "General Liability Insurance",
+              "href": "https://www.insureon.com/small-business-insurance/general-liability"
+            },
+            {
+              "title": "Professional Liability Insurance",
+              "href": "https://www.insureon.com/products/professional-liability"
+            },
+            {
+              "title": "Business Owner's Policy",
+              "href": "https://www.insureon.com/products/business-owner-policy"
+            },
+            {
+              "title": "Errors & Omissions Insurance",
+              "href": "https://www.insureon.com/products/errors-omissions"
+            },
+            {
+              "title": "Workers' Compensation",
+              "href": "https://www.insureon.com/products/workers-compensation"
+            },
+            {
+              "title": "Cyber Liability Insurance",
+              "href": "https://www.insureon.com/products/cyber-liability"
+            },
+            {
+              "title": "Commercial Property Insurance",
+              "href": "https://www.insureon.com/products/property-insurance"
+            },
+            {
+              "title": "Umbrella Insurance",
+              "href": "https://www.insureon.com/products/umbrella-liability"
+            },
+            {
+              "title": "Commercial Auto Insurance",
+              "href": "https://www.insureon.com/products/commercial-auto"
+            },
+            {
+              "title": "Employment Practices Liability Insurance",
+              "href": "https://www.insureon.com/products/employment-practices-liability"
+            },
+            {
+              "title": "Directors & Officers Insurance",
+              "href": "https://www.insureon.com/products/directors-officers-insurance"
+            },
+            {
+              "title": "View All Policies",
+              "href": "https://www.insureon.com/small-business-insurance",
+              "className": "main-nav__see-more-link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Industries",
+      "href": "https://www.insureon.com/who-we-insure",
+      "links": [
+        {
+          "title": "Browse by Industries",
+          "columns": 4,
+          "links": [
+            {
+              "title": "Building Design",
+              "href": "https://design.insureon.com",
+              "className": "industry-icon industry-icon_building-design"
+            },
+            {
+              "title": "Cleaning Services",
+              "href": "https://buildingservices.insureon.com",
+              "className": "industry-icon industry-icon_cleaning-services"
+            },
+            {
+              "title": "Construction",
+              "href": "https://construction.insureon.com",
+              "className": "industry-icon industry-icon_construction-contracting"
+            },
+            {
+              "title": "Consulting",
+              "href": "https://www.insureon.com/consulting-business-insurance",
+              "className": "industry-icon industry-icon_consulting"
+            },
+            {
+              "title": "Finance & Accounting",
+              "href": "https://financial.insureon.com",
+              "className": "industry-icon industry-icon_finance-accounting"
+            },
+            {
+              "title": "Food & Beverage",
+              "href": "https://www.insureon.com/food-business-insurance",
+              "className": "industry-icon industry-icon_food-beverage"
+            },
+            {
+              "title": "Healthcare",
+              "href": "https://alliedhealth.insureon.com",
+              "className": "industry-icon industry-icon_healthcare"
+            },
+            {
+              "title": "Home Based Businesses",
+              "href": "https://www.insureon.com/who-we-insure/home-based",
+              "className": "industry-icon industry-icon_home-based-businesses"
+            },
+            {
+              "title": "Information Technology",
+              "href": "https://it.insureon.com",
+              "className": "industry-icon industry-icon_information-technology"
+            },
+            {
+              "title": "Insurance Agents",
+              "href": "https://agents.insureon.com",
+              "className": "industry-icon industry-icon_insurance-agents"
+            },
+            {
+              "title": "Landscaping",
+              "href": "https://landscaping.insureon.com",
+              "className": "industry-icon industry-icon_landscaping"
+            },
+            {
+              "title": " Manufacturing",
+              "href": "https://www.insureon.com/who-we-insure/manufacturers",
+              "className": "industry-icon industry-icon_manufacturing"
+            },
+            {
+              "title": "Media & Advertising",
+              "href": "https://advertising.insureon.com",
+              "className": "industry-icon industry-icon_media"
+            },
+            {
+              "title": "Nonprofits",
+              "href": "https://nonprofit.insureon.com/",
+              "className": "industry-icon industry-icon_nonprofits"
+            },
+            {
+              "title": "Personal Care",
+              "href": "https://www.insureon.com/who-we-insure/personal-care",
+              "className": "industry-icon industry-icon_personal-care"
+            },
+            {
+              "title": "Pet Care",
+              "href": "https://www.insureon.com/who-we-insure/pet-services",
+              "className": "industry-icon industry-icon_pet-care"
+            },
+            {
+              "title": "Photo & Video",
+              "href": "https://photovideo.insureon.com",
+              "className": "industry-icon industry-icon_photo-video"
+            },
+            {
+              "title": "Printing & Copying",
+              "href": "https://www.insureon.com/who-we-insure/printers",
+              "className": "industry-icon industry-icon_printing-copying"
+            },
+            {
+              "title": "Professional Services",
+              "href": "https://www.insureon.com/who-we-insure/specialty",
+              "className": "industry-icon industry-icon_professional-services"
+            },
+            {
+              "title": "Real Estate",
+              "href": "https://realestate.insureon.com",
+              "className": "industry-icon industry-icon_real-estate"
+            },
+            {
+              "title": "Retail",
+              "href": "https://retail.insureon.com",
+              "className": "industry-icon industry-icon_retail"
+            },
+            {
+              "title": "Service Providers",
+              "href": "https://www.insureon.com/who-we-insure/services",
+              "className": "industry-icon industry-icon_service-providers"
+            },
+            {
+              "title": "Wholesale",
+              "href": "https://www.insureon.com/who-we-insure/wholesalers",
+              "className": "industry-icon industry-icon_wholesaler"
+            },
+            {
+              "title": "See More Industries",
+              "href": "https://ua.apps.insureon.com/NAICSFinder",
+              "className": "industry-icon main-nav__see-more-link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Small Business Resources",
+      "href": "https://www.insureon.com/resources",
+      "links": [
+        {
+          "title": "Learn more about Business Insurance",
+          "columns": 2,
+          "width": "66.667%",
+          "links": [
+            {
+              "title": "Why do I need business insurance?",
+              "href": "https://www.insureon.com/about-us/why-business-insurance"
+            },
+            {
+              "title": "What type of insurance does my business need?",
+              "href": "https://www.insureon.com/resources/policy-buddy"
+            },
+            {
+              "title": "How much does business insurance cost?",
+              "href": "https://www.insureon.com/insureonu/costs"
+            },
+            {
+              "title": "How can I save on business insurance?",
+              "href": "https://www.insureon.com/small-business-insurance/cheap-business-insurance"
+            },
+            {
+              "title": "Other small business insurance FAQs",
+              "href": "https://www.insureon.com/faq"
+            },
+            {
+              "title": "See insurance pricing trends",
+              "href": "https://www.insureon.com/resources/price-index"
+            },
+            {
+              "title": "Insureon's small business research",
+              "href": "https://www.insureon.com/resources/research"
+            },
+            {
+              "title": "Business insurance terms explained",
+              "href": "https://www.insureon.com/insureonu/glossary"
+            }
+          ]
+        },
+        {
+          "title": "Insureon Small Business Blog",
+          "columns": 1,
+          "width": "33.333%",
+          "links": [
+            {
+              "title": "Small Business Stories",
+              "href": "https://www.insureon.com/blog/category/small-business-spotlight.aspx"
+            },
+            {
+              "title": "Business Best Practices",
+              "href": "https://www.insureon.com/blog/category/tips-for-all-small-businesses.aspx"
+            },
+            {
+              "title": "Managing Risks",
+              "href": "https://www.insureon.com/blog/category/small-business-risk-management.aspx"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contact Us",
+      "href": "https://www.insureon.com/contact-us"
+    }
+  ]
+}

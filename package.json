@@ -1,0 +1,20 @@
+{
+  "name": "create-menu",
+  "version": "1.0.0",
+  "description": "creates a menu from a JSON object",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@bitbucket.insureondev.com:7999/~eric.constantinides_insureon.com/cx-create-menu.git"
+  },
+  "keywords": [
+    "insureon"
+  ],
+  "author": "Eric Constantinides",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jsdom": "^12.2.0",
+    "request": "^2.88.0"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "className": "main-nav",
+  "links": [
+    {
+      "title": "Section 1",
+      "href": "https://www.YOURSITE.com/section-1",
+      "links": [
+        {
+          "title": "Section 1 Title",
+          "columns": 3,
+          "links": [
+            {
+              "title": "Menu Item 1",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-1"
+            },
+            {
+              "title": "Menu Item 2",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-2"
+            },
+            {
+              "title": "Menu Item 3",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-3"
+            },
+            {
+              "title": "Menu Item 4",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-4"
+            },
+            {
+              "title": "Menu Item 5",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-5"
+            },
+            {
+              "title": "Menu Item 6",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-6"
+            },
+            {
+              "title": "Menu Item 7",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-7"
+            },
+            {
+              "title": "Menu Item 8",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-8"
+            },
+            {
+              "title": "Menu Item 9",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-9"
+            },
+            {
+              "title": "Menu Item 10",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-10"
+            },
+            {
+              "title": "Menu Item 11",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-11"
+            },
+            {
+              "title": "Menu Item 12",
+              "href": "https://www.YOURSITE.com/section-1/menu-item-12",
+              "className": "main-nav__see-more-link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Section 2",
+      "href": "https://www.YOURSITE.com/section-2",
+      "links": [
+        {
+          "title": "Section 2 Title",
+          "columns": 4,
+          "links": [
+            {
+              "title": "Menu Item 1",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-1",
+              "className": "industry-icon industry-icon_building-design"
+            },
+            {
+              "title": "Menu Item 2",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-2",
+              "className": "industry-icon industry-icon_cleaning-services"
+            },
+            {
+              "title": "Menu Item 3",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-3",
+              "className": "industry-icon industry-icon_construction-contracting"
+            },
+            {
+              "title": "Menu Item 4",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-4",
+              "className": "industry-icon industry-icon_consulting"
+            },
+            {
+              "title": "Menu Item 5",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-5",
+              "className": "industry-icon industry-icon_finance-accounting"
+            },
+            {
+              "title": "Menu Item 6",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-6",
+              "className": "industry-icon industry-icon_food-beverage"
+            },
+            {
+              "title": "Menu Item 7",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-7",
+              "className": "industry-icon industry-icon_healthcare"
+            },
+            {
+              "title": "Menu Item 8",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-8",
+              "className": "industry-icon industry-icon_home-based-businesses"
+            },
+            {
+              "title": "Menu Item 9",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-9",
+              "className": "industry-icon industry-icon_information-technology"
+            },
+            {
+              "title": "Menu Item 10",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-10",
+              "className": "industry-icon industry-icon_insurance-agents"
+            },
+            {
+              "title": "Menu Item 11",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-11",
+              "className": "industry-icon industry-icon_landscaping"
+            },
+            {
+              "title": "Menu Item 12",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-12",
+              "className": "industry-icon industry-icon_manufacturing"
+            },
+            {
+              "title": "Menu Item 13",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-13",
+              "className": "industry-icon industry-icon_media"
+            },
+            {
+              "title": "Menu Item 14",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-14",
+              "className": "industry-icon industry-icon_nonprofits"
+            },
+            {
+              "title": "Menu Item 15",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-15",
+              "className": "industry-icon industry-icon_personal-care"
+            },
+            {
+              "title": "Menu Item 16",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-16",
+              "className": "industry-icon industry-icon_pet-care"
+            },
+            {
+              "title": "Menu Item 17",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-17",
+              "className": "industry-icon industry-icon_photo-video"
+            },
+            {
+              "title": "Menu Item 18",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-18",
+              "className": "industry-icon industry-icon_printing-copying"
+            },
+            {
+              "title": "Menu Item 19",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-19",
+              "className": "industry-icon industry-icon_professional-services"
+            },
+            {
+              "title": "Menu Item 20",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-20",
+              "className": "industry-icon industry-icon_real-estate"
+            },
+            {
+              "title": "Menu Item 21",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-21",
+              "className": "industry-icon industry-icon_retail"
+            },
+            {
+              "title": "Menu Item 22",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-22",
+              "className": "industry-icon industry-icon_service-providers"
+            },
+            {
+              "title": "Menu Item 23",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-23",
+              "className": "industry-icon industry-icon_wholesaler"
+            },
+            {
+              "title": "Menu Item 24",
+              "href": "https://www.YOURSITE.com/section-2/menu-item-24",
+              "className": "industry-icon main-nav__see-more-link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Section 3",
+      "href": "https://www.YOURSITE.com/section-3",
+      "links": [
+        {
+          "title": "Section 3, Left Title",
+          "columns": 2,
+          "width": "66.667%",
+          "links": [
+            {
+              "title": "Menu Item 1",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-1"
+            },
+            {
+              "title": "Menu Item 2",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-2"
+            },
+            {
+              "title": "Menu Item 3",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-3"
+            },
+            {
+              "title": "Menu Item 4",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-4"
+            },
+            {
+              "title": "Menu Item 5",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-5"
+            },
+            {
+              "title": "Menu Item 6",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-6"
+            },
+            {
+              "title": "Menu Item 7",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-7"
+            },
+            {
+              "title": "Menu Item 8",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-8"
+            }
+          ]
+        },
+        {
+          "title": "Section 3, Right Title",
+          "columns": 1,
+          "width": "33.333%",
+          "links": [
+            {
+              "title": "Menu Item 9",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-9"
+            },
+            {
+              "title": "Menu Item 10",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-10"
+            },
+            {
+              "title": "Menu Item 11",
+              "href": "https://www.YOURSITE.com/section-3/menu-item-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Section 4 -- no dropdown",
+      "href": "https://www.YOURSITE.com/section-4"
+    }
+  ]
+}
