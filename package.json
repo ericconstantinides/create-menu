@@ -2,7 +2,7 @@
   "name": "create-menu",
   "version": "1.0.1",
   "description": "creates a menu from a JSON object",
-  "main": "create-menu.j",
+  "main": "create-menu.js",
   "scripts": {
     "start": "node create-menu-taskrunner.js"
   },
