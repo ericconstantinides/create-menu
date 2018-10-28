@@ -98,16 +98,11 @@ var initialize = function() {
   }
 
   var handleShadowMenuClick = function(event) {
-    console.log('event:', event.target)
-    if (event.target.closest('.main-nav--shadow-menu')) {
-      console.log('shadowMenuClick')
-      updateNavActive(mainNav, 'remove')
-    }
-    var target
-    var action
-    // if DESKTOP EXIT
     if (window.matchMedia('(min-width: ' + DESKTOP_BREAKPOINT + 'px)').matches) {
-      return
+      return null
+    }
+    if (event.target.closest('.main-nav--shadow-menu')) {
+      handleNavToggle()
     }
   }
 
