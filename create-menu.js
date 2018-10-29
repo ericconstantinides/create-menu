@@ -83,11 +83,17 @@ var createMenu = function(navObj, siteHeaderHTML, menuStub) {
     var title = item.title
     var href = item.href
     var width = item.width
-    var itemElBefore = createEl('li', 'item', classesArr, depth, isParent)
-    var itemEl = addAttributes(itemElBefore, null, null, null, width)
+    var pre_itemEl = createEl('li', 'item', classesArr, depth, isParent)
+    var itemEl = addAttributes(pre_itemEl, null, null, null, width)
     // now we create the child span or a:
-    var childElBefore = createEl(href ? 'a' : 'span', 'link', classesArr, depth, isParent)
-    var childEl = addAttributes(childElBefore, title || href, subClassesArr, href)
+    var pre_childEl = createEl(
+      href ? 'a' : 'span',
+      href ? 'link' : 'title',
+      classesArr,
+      depth,
+      isParent
+    )
+    var childEl = addAttributes(pre_childEl, title || href, subClassesArr, href)
     itemEl.appendChild(childEl)
     return itemEl
   }
