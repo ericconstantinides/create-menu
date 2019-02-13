@@ -1,7 +1,7 @@
 {
   "name": "create-menu",
-  "version": "1.0.3",
-  "description": "creates a menu from a JSON object",
+  "version": "1.0.4",
+  "description": "Create Menu creates an HTML menu from a JSON object",
   "main": "create-menu.js",
   "scripts": {
     "start": "node create-menu-taskrunner.js"

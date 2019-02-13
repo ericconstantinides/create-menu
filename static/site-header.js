@@ -34,7 +34,7 @@ var initialize = function() {
     // operate on the shadowMenu:
     if (target.classList.contains('main-nav__item--depth-0')) {
       clearTimeout(isMenuActiveTimeout)
-      isMenuActiveTimeout = setTimeout(() => {
+      isMenuActiveTimeout = setTimeout(function() {
         if (action === 'add') {
           if (!isMenuActive) {
             // menu activated

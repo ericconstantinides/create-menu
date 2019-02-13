@@ -1,6 +1,6 @@
 # CreateMenu
 
-createMenu creates a menu from a JSON object. The created menu is ES5 compatible 
+Create Menu creates an HTML menu from a JSON object. It also includes CSS and ES5 compatible JS to operate the menu.
 
 ## Table of Contents
 
@@ -15,18 +15,18 @@ createMenu creates a menu from a JSON object. The created menu is ES5 compatible
 @returns {string} the generated menu HTML
 
 ## JSON Structure
-The basic structure for the object is like the following
-
-## Webpack integration
+See [example/example-menu.json](example/example-menu.json)
 
 ## CreateMenuTaskRunner with Node
 
 createMenu can run from the command line with a small taskRunner file. It's executed by running, `node createMenuTaskRunner.js`
 
+## Webpack integration
+
 ``` js
 /* global require */
 const fs = require('fs')
-const createMenu = require('./createMenu')
+const createMenu = require('createMenu')
 const menuJSON = require('./menu.json')
 
 const MENU_STUB = '<!-- MENU_STUB -->'
